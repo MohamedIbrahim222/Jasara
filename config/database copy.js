@@ -5,7 +5,7 @@
         connection: {
           host: env('DATABASE_HOST', 'db-postgresql-nyc3-97006-do-user-15824417-0.k.db.ondigitalocean.com'),
           port: env.int('DATABASE_PORT', 25060),
-          database: env('DATABASE_NAME', 'jasarabd'),
+          database: env('DATABASE_NAME', 'defaultdb'),
           user: env('DATABASE_USERNAME', 'doadmin'),
           password: env('DATABASE_PASSWORD', ''),
           schema: env('DATABASE_SCHEMA', 'public'), // Not required
