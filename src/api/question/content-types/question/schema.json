@@ -4,7 +4,8 @@
   "info": {
     "singularName": "question",
     "pluralName": "questions",
-    "displayName": "question"
+    "displayName": "question",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,6 +42,22 @@
       "relation": "manyToOne",
       "target": "api::equipment.equipment",
       "inversedBy": "questions"
+    },
+    "category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "equipment",
+        "aboutUs",
+        "popular",
+        "whyWithJasara ",
+        "other"
+      ],
+      "required": true
     }
   }
 }
