@@ -4,7 +4,8 @@
   "info": {
     "singularName": "whatsapp-number",
     "pluralName": "whatsapp-numbers",
-    "displayName": "whatsappNumber"
+    "displayName": "whatsappNumber",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,9 +13,10 @@
   "pluginOptions": {},
   "attributes": {
     "defaultNumber": {
-      "type": "integer",
-      "required": true,
-      "unique": true
+      "type": "string",
+      "regex": "^((\\+966)|0)5\\d{8}$",
+      "unique": true,
+      "required": true
     }
   }
 }

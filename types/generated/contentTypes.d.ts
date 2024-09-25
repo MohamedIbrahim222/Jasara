@@ -651,15 +651,31 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
     singularName: 'partner';
     pluralName: 'partners';
     displayName: 'partner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     partnerLogo: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     partnerName: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 1;
         maxLength: 50;
@@ -753,12 +769,13 @@ export interface ApiWhatsappNumberWhatsappNumber
     singularName: 'whatsapp-number';
     pluralName: 'whatsapp-numbers';
     displayName: 'whatsappNumber';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    defaultNumber: Schema.Attribute.Integer &
+    defaultNumber: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     createdAt: Schema.Attribute.DateTime;

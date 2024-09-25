@@ -4,21 +4,31 @@
   "info": {
     "singularName": "partner",
     "pluralName": "partners",
-    "displayName": "partner"
+    "displayName": "partner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "partnerLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
       ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "partnerName": {
       "type": "string",
@@ -26,7 +36,12 @@
       "unique": false,
       "minLength": 1,
       "maxLength": 50,
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
