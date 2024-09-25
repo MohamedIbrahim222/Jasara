@@ -645,6 +645,41 @@ export interface ApiEquipmentEquipment extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    partnerLogo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    partnerName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 50;
+      }> &
+      Schema.Attribute.DefaultTo<'partnerName'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partner.partner'
+    >;
+  };
+}
+
 export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
   collectionName: 'questions';
   info: {
@@ -707,6 +742,36 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::question.question'
+    >;
+  };
+}
+
+export interface ApiWhatsappNumberWhatsappNumber
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'whatsapp_numbers';
+  info: {
+    singularName: 'whatsapp-number';
+    pluralName: 'whatsapp-numbers';
+    displayName: 'whatsappNumber';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    defaultNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::whatsapp-number.whatsapp-number'
     >;
   };
 }
@@ -1088,7 +1153,9 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::customer-review.customer-review': ApiCustomerReviewCustomerReview;
       'api::equipment.equipment': ApiEquipmentEquipment;
+      'api::partner.partner': ApiPartnerPartner;
       'api::question.question': ApiQuestionQuestion;
+      'api::whatsapp-number.whatsapp-number': ApiWhatsappNumberWhatsappNumber;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

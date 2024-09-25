@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whatsapp_numbers",
+  "info": {
+    "singularName": "whatsapp-number",
+    "pluralName": "whatsapp-numbers",
+    "displayName": "whatsappNumber"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "defaultNumber": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}
