@@ -93,11 +93,6 @@ const bootstrap = (app) => {
 };
 
 export default {
-  config: {
-    // replace favicon with a custom icon
-    head: {
-      favicon: logo,
-    },
-  },
+  config,
   bootstrap,
 };
