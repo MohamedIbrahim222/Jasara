@@ -53,6 +53,7 @@
       "enum": [
         "equipment",
         "aboutUs",
+        "morals",
         "popular",
         "whyWithJasara ",
         "other"

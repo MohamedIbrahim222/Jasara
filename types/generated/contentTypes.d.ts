@@ -739,7 +739,7 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
       'api::equipment.equipment'
     >;
     category: Schema.Attribute.Enumeration<
-      ['equipment', 'aboutUs', 'popular', 'whyWithJasara ', 'other']
+      ['equipment', 'aboutUs', 'morals', 'popular', 'whyWithJasara ', 'other']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

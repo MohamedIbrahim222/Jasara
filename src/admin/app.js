@@ -1,4 +1,5 @@
-const logo = '[url=https://ibb.co/K9p34F9][img]https://i.ibb.co/JzwM65z/customcolor-icon-transparent-background.png[/img][/url]';
+
+const logo = 'https://jasaraassits.fra1.digitaloceanspaces.com/customcolor_icon_transparent_background.png';
 
 const config = {
   // Replace the Strapi logo in auth (login) views
@@ -14,10 +15,12 @@ const config = {
     logo,
   },
   // Extend the translations
+  locales: ['en', 'ar'],
+
   translations: {
     en: {
       // Left Menu
-      "app.components.LeftMenu.navbrand.title": "Aoun Dashboard",
+      "app.components.LeftMenu.navbrand.title": "Jasara Dashboard",
       "app.components.LeftMenu.navbrand.workplace": "Testing",
       "app.components.LeftMenu.general": "General",
       "app.components.LeftMenu.plugins": "Plugins",
@@ -70,7 +73,7 @@ const config = {
       "app.components.ContentManager.edit": "تعديل المدخل",
 
       // Auth
-      "Auth.form.welcome.title": "أهلا بيك في جساره",
+      "Auth.form.welcome.title": "هلا ومسهلا في لوحة تحكم جسارة",
       "Auth.form.welcome.subtitle": "تسجيل الدخول إلى حسابك",
       "Auth.form.button.login": "تسجيل الدخول",
       "Auth.form.button.forgot-password": "نسيت كلمة المرور؟",
@@ -90,6 +93,11 @@ const bootstrap = (app) => {
 };
 
 export default {
-  config,
+  config: {
+    // replace favicon with a custom icon
+    head: {
+      favicon: logo,
+    },
+  },
   bootstrap,
 };
