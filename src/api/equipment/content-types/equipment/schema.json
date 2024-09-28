@@ -89,6 +89,15 @@
       "relation": "oneToMany",
       "target": "api::question.question",
       "mappedBy": "equipment"
+    },
+    "priority": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "unique": true
     }
   }
 }
